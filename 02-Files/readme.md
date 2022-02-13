@@ -7,7 +7,7 @@ String path = "studentFolder/text/practice1.txt";
 ```
 - A buffer is a block of memory that stores data. Your program interacts with the buffer (which is fast) before interacting with the disk (which is slow). Buffers can read or write more than one byte of data at a time, so it interacts with the disk less often.
 
-<img src="/images/buffer.png" alt="buffer"/>
+<img src="/images/buffer.png"/>
 
 - Be sure to import the java.io package.
 
