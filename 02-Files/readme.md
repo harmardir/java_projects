@@ -155,6 +155,108 @@ In the code below ava will skip the first 30 characters and then print the remai
     }
     //add code above this line 
 ```
+### CSV Files
+
+- In order to read a CSV file, Java needs to import the `opencsv` package and the `apache.commons` package in addition to the `java.io` package. The CSV file will be opened much like a text file; open the file in a `FileReader` object, but wrap it in a `CSVReader` object as opposed to a `BufferedReader` object.
+
+```
+        //add code below this line
+    String path = "studentFolder/csv/montyPythonMovies.csv";
+    try {
+      CSVReader reader = new CSVReader(new FileReader(path));
+      for (String[] row : reader) {
+        for (String item : row) {
+          System.out.print(item + " ");
+        }
+        System.out.println();
+      }
+      reader.close();
+    } catch (Exception e) {
+      System.out.println(e);
+    } finally {
+      System.out.println("Finished reading a CSV");
+    }
+    //add code above this line
+
+```
+- To skip the first row:
+```
+CSVReader reader = new CSVReader(new FileReader(path));
+      reader.skip(1);
+```
+- With the string `format` method, you can introduce consistent spacing printing a string. Start with `String.format("%s", item)`. That tells Java that the value stored in `item` is to be printed as a string. To add padding, insert 15 between the "% " and the “s” so it looks like `String.format("%17s", item)`
+
+```
+    //add code below this line
+    String path = "studentFolder/csv/homeRuns.csv";
+    try {
+      CSVReader reader = new CSVReader(new FileReader(path));
+      for (String[] row : reader) {
+        String column1 = String.format("%-17s", row[0]);
+        String column2 = String.format("%-11s", row[1]);
+        String column3 = String.format("%-13s", row[2]);
+        System.out.println(column1 + column2 + column3);
+      }
+      reader.close();
+    } catch (Exception e) {
+      System.out.println(e);
+    } finally {
+      System.out.println("Finished reading a CSV");
+    }
+    //add code above this line
+```
+- The data for each row in a CSV file stored as an array of strings once it is read.
+- Delimiters are a predefined character that separates one piece of information from another. CSV files use commas as the delimiter by default, we can use tabs `("\t")` as delimiter.
+```
+    //add code below this line
+    String path = "studentFolder/csv/dataWithTabs.csv";
+    String delimiter = "\t";
+    try {
+      BufferedReader reader = new BufferedReader(new FileReader(path));
+      while(reader.ready()) {
+        String line = reader.readLine();
+        String[] tokens = line.split(delimiter);
+        for(String token : tokens) {
+          System.out.print(String.format("%-10s", token));
+        }
+        System.out.println();
+      }
+      reader.close();
+    } catch (IOException e) {
+      System.out.println(e);
+    } finally {
+      System.out.println("Finished reading a CSV");
+    }
+    //add code above this line
+```
+- `CSVWriter` object is used to write to a CSV file.
+```
+    //add code below this line
+    String path = "studentFolder/csv/writePractice.csv";
+    try {
+      CSVWriter writer = new CSVWriter(new FileWriter(path));
+      
+      String[] header = {"Greeting", "Language"};
+      String[] row1 = {"Hello", "English"};
+      String[] row2 = {"Bonjour", "French"};
+      String[] row3 = {"Hola", "Spanish"};
+      String[] row4 = {"Namaste", "Hindi"};
+      
+      writer.writeNext(header);
+      writer.writeNext(row1);
+      writer.writeNext(row2);
+      writer.writeNext(row3);
+      writer.writeNext(row4);
+      
+      writer.close();
+    } catch (IOException e) {
+      System.out.println(e);
+    } finally {
+      System.out.println("Finished writing to a CSV");
+    }
+    //add code above this line
+```
+
 
 
 
