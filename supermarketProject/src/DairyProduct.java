@@ -14,6 +14,15 @@ public class DairyProduct extends GroceryProduct {
     public void setFat(Fat fat) {
         Fat = fat;
     }
+    /**
+     * 
+     */
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString() + "Fat Level " + Fat;
+    }
 
     
     

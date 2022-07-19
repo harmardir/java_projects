@@ -43,4 +43,18 @@ public class GroceryProduct{
     public void setDiscount(double discount) {
         this.discount = discount;
     }
+    /*
+     * 
+     */
+
+    public double getActualPrice(){
+        return (price - price *(discount/100));
+    }
+
+    @Override
+    public String toString() {
+        return "GroceryProduct [discount=" + discount + ", name=" + name + ", price=" + price + "]";
+    }
+
+    
 }

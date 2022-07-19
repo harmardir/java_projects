@@ -15,6 +15,14 @@ public class BeverageProduct extends GroceryProduct {
         SugarLevel = sugarLevel;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString() + "Sugar Level " + SugarLevel;
+    }
+
+    
+
     
     
 }
