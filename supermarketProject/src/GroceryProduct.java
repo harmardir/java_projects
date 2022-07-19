@@ -2,7 +2,7 @@
  * 
  */
 
-public class GroceryProduct{
+public abstract class GroceryProduct{
 
     private String name;
     private double price;

@@ -1,4 +1,4 @@
-public class BeverageProduct extends GroceryProduct {
+public class BeverageProduct extends GroceryProduct implements Drinakble {
 
     private SugarLevel SugarLevel;
 
@@ -21,8 +21,8 @@ public class BeverageProduct extends GroceryProduct {
         return super.toString() + "Sugar Level " + SugarLevel;
     }
 
-    
-
-    
-    
+    @Override
+    public boolean isHealthy() {
+        return SugarLevel = SugarLevel.ADDED_SUGAR;
+    }    
 }
